@@ -1,1 +1,3 @@
-# blogo
+blogo
+=====
+Simple blog.

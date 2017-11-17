@@ -1,0 +1,46 @@
+<html>
+  
+  <head>    
+    <meta http-equiv="content-type" content="text/html;charset=utf-8"/>
+    <meta name="viewport" content="width=device-width"/>
+    <link rel="stylesheet" href="/blog/style.css" type="text/css"/>
+    <title>@|blog-title|</title>    
+  </head>
+  
+  <body>
+    <div class="top-border"></div>
+    <div class="bottom-border"></div>
+    <div class="left-border"></div>
+    <div class="right-border"></div>
+    
+    <div class="blog-title">      
+      <div class="languages-menu-up">
+	@in[lang languages-list]{
+	<a href="@change-language-path[lang]">@string-upcase[lang]</a>	
+	}
+      </div>
+      
+      <div>@|blog-title|</div>
+    </div>
+    
+    <div class="posts_summary_container">
+      <ul class="list_posts_summary_container">
+	@in[p posts-list]{
+	<li>
+	  <a href="@post-path[p]">@(post-title p)</a>
+	  <br/>
+	  <span class="post_date">@(post-publication-date p)</span>
+	</li>	
+	}
+      </ul>
+      <hr/>
+    </div>
+    <div class="static-pages-menu">
+      @in[spage static-pages-list]{
+      <a href="@static-page-path[spage]">@static-page-title[spage]</a>
+      <!-- <a href="/blog/en/about">About</a> -->
+
+      }
+    </div>
+  </body>
+</html>
