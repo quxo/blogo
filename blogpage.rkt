@@ -1,4 +1,4 @@
- #lang racket
+#lang racket
 
 (require "model.rkt")
 (require web-server/servlet)
@@ -254,6 +254,7 @@
 	;(set-blog-current-language! the-blog (most-likely-language ))
 
 	(define (main-page-creator req lang)
+	  
 	  (if (member lang (blog-languages-list the-blog) )
 	      ((create-main-page-function the-blog n-posts lang url-path) req )
 	      (redirect-to (string-append
@@ -329,7 +330,7 @@
        
        
        (serve/servlet start
-	       #:launch-browser? #f
+	       #:launch-browser? #t
 	       #:quit? #f
 	       #:listen-ip #f
 	       #:servlet-regexp
@@ -344,7 +345,9 @@
 	       #:extra-files-paths
 	       (list (build-path root-path "htdocs")
 		     (build-path root-path "htdocs" "MathJax-master"))
-	       #:servlet-path "/"))]))
+	       #:servlet-path "/"
+	        )
+       )]))
 
 
 (provide (all-defined-out))
